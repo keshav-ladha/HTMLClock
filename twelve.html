@@ -54,15 +54,18 @@
             <div id="it">
                 <p>Indian Standard Time GMT+5:30</p>
                 <a href="twentyfour.html" id="toggle">Toggle Time Format</a>
+                <p>Twelve Hour Format</p>
             </div> 
         </div>
     </div>
     <script>
         function displayTime(){
             time = new Date();
-            time = String(time);
-            time = time.split("2021")[1].split("GMT")[0].split(":");  //19:45:65
-            let hours = parseInt(time[0])
+            hours = time.getHours();
+            minutes = time.getMinutes();
+            seconds = time.getSeconds();
+            // time = `${hours}:${minutes}:${seconds}`;
+            // document.getElementById('time').innerHTML = time;
             if( hours==24){
                 hours=0;
             }
@@ -70,10 +73,10 @@
                 hours = hours - 12;
             }
             if( hours<10){
-                document.getElementById('time').innerHTML = `0${hours}:${time[1]}:${time[2]}`
+                document.getElementById('time').innerHTML = `0${hours}:${minutes}:${seconds}`
             }
             else{
-                document.getElementById('time').innerHTML = `${hours}:${time[1]}:${time[2]}`
+                document.getElementById('time').innerHTML = `${hours}:${minutes}:${seconds}`
             }
 
         }

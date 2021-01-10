@@ -53,15 +53,18 @@
             <div id="time"></div>
             <div id="it">
                 <p>Indian Standard Time GMT+5:30</p>
-                <a href="twentyfour.html" id="toggle">Toggle Time Format</a>
+                <a href="twelve.html" id="toggle">Toggle Time Format</a>
+                <p>Military time</p>
             </div> 
         </div>
     </div>
     <script>
         function displayTime(){
             time = new Date();
-            time = String(time);
-            time = time.split("2021")[1].split("GMT")[0];  //19:45:65
+            hours = time.getHours();
+            minutes = time.getMinutes();
+            seconds = time.getSeconds();
+            time = `${hours}:${minutes}:${seconds}`;
             document.getElementById('time').innerHTML = time;
         }
         setInterval(displayTime,1000)
